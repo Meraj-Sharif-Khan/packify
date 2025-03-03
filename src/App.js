@@ -1,5 +1,15 @@
+import NavBar from "component/navBar";
+import Packify from "component/packify";
+import React from "react";
 function App() {
-  return <h1>Packify</h1>;
+  return (
+    <React.Fragment>
+      <NavBar />
+      <main className="container">
+        <Packify />
+      </main>
+    </React.Fragment>
+  );
 }
 
 export default App;
