@@ -11,7 +11,8 @@ const Packify = () => {
   useEffect(() => {
     const getstoredItems = localStorage.getItem("item");
     const storedItems = JSON.parse(getstoredItems);
-    setItems(storedItems);
+
+    if (storedItems) setItems(storedItems);
   }, []);
 
   function countPacked(items) {
@@ -46,7 +47,10 @@ const Packify = () => {
 
   function handleClearList() {
     const confirm = window.confirm("All item's will be removed!");
-    if (confirm) setItems([]);
+    if (confirm) {
+      setItems([]);
+      localStorage.removeItem("item");
+    }
   }
 
   return (
